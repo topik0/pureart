@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/2WPCLda_erI?autoplay=1&origin=http://example.com" frameborder="0"></iframe>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://jdan.github.io/98.css/ -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <!-- Add the stylesheet to the head -->
+<link rel="stylesheet" type="text/css" href="https://gitcdn.xyz/repo/pi0/clippyjs/master/assets/clippy.css">
+
+<!-- Add these scripts to  the bottom of the page -->
+<script src="https://unpkg.com/jquery@3.2.1"></script>
+
+<script src="https://unpkg.com/clippyjs@latest"></script>
+    <style>
+        html {
+            background: repeat url('https://i.imgur.com/6fATOBT.jpg');
+            cursor: url('https://cdn.discordapp.com/avatars/126251022002814976/0427d645df822d8e466c033fd5639ace.png'), auto;	
+        }
+        .gates {
+            position: fixed;
+            background: url('http://toastytech.com/evil/billagram2.gif') 0% 0% repeat;
+            height: 100vh;
+            animation-name: MOVE-BG;
+            animation-duration: 100s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        /*body { background:#000; color:#FFF; }*/
+        #perfect { display:inline-block; font-family:monospace; white-space:pre; line-height:1; margin:0 }
+        #perfect>* { width:15px; display:inline-block; }
+        p { font-size: 1.2em; }
+
+        .musty {
+            width: 100%; height: 95vh;
+            font-size: 2rem;
+            text-align: center;
+            color: white;
+        }
+        .lost {
+            filter: saturate(2000%);
+            height: 512px;
+        }
+        .bruh{
+          font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gates"></div>
+    <img src="https://cdn.discordapp.com/avatars/126251022002814976/0427d645df822d8e466c033fd5639ace.png" class="lost">
+    <p class="bruh">bruh</p>
+    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/VAZsBEELqPw?autoplay=1&origin=http://example.com" frameborder="0"></iframe>
+    
+    <div class="window" style="width: 300px">
+        <div class="title-bar">
+          <div class="title-bar-text">A Window With Stuff In It</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+            <fieldset>
+                <legend>Today's mood</legend>
+                <div class="field-row">
+                    <input id="radio13" type="radio" name="fieldset-example2">
+                    <label for="radio13">Shit</label>
+                </div>
+                <div class="field-row">
+                    <input id="radio14" type="radio" name="fieldset-example2">
+                    <label for="radio14">Shit</label>
+                </div>
+                <div class="field-row">
+                    <input id="radio15" type="radio" name="fieldset-example2">
+                    <label for="radio15">Shit</label>
+                </div>
+                <div class="field-row">
+                    <input id="radio16" type="radio" name="fieldset-example2">
+                    <label for="radio16">Special Shit</label>
+                </div>
+            </fieldset>
+            <img src="https://i.redd.it/5gzaxsn6vff21.jpg" />
+        </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat eu orci non maximus. Donec ornare maximus dui, sit amet luctus nisl commodo id. Integer malesuada justo ut libero elementum malesuada. Mauris auctor euismod enim. Donec lobortis sem vitae libero placerat consequat. Praesent risus tellus, maximus nec tincidunt malesuada, rutrum id augue. Nunc blandit sem et sollicitudin faucibus. Donec vitae fringilla felis. Sed blandit auctor augue, a iaculis nulla suscipit vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam semper purus risus, sit amet dignissim erat tincidunt ut. Sed non fringilla risus.
+        Vivamus id venenatis mi. Donec laoreet nulla eget ligula maximus, vel condimentum velit porta. Quisque rhoncus, nulla sit amet blandit cursus, dui tortor lobortis ex, at molestie eros ex auctor dui. Praesent vitae mollis felis, sit amet vulputate odio. Nam aliquet lacus quis justo aliquet porttitor. Nulla hendrerit, nunc eu lacinia gravida, dolor nunc cursus arcu, a ultricies ipsum purus et risus. Vestibulum volutpat nisl vitae augue porta, malesuada venenatis mi condimentum. Donec ac hendrerit nulla. In hac habitasse platea dictumst. Sed ut libero porttitor, condimentum turpis id, pharetra augue. Nam turpis arcu, consequat ac tortor a, interdum rutrum velit. Maecenas eu ante eros. In tristique est ex, id imperdiet neque dignissim in. Aenean varius nulla at nunc finibus, ut accumsan eros convallis.
+        Aenean in justo magna. Phasellus ullamcorper egestas quam vitae congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc nec neque porttitor felis fringilla congue malesuada ac arcu. Mauris et arcu placerat, fermentum eros quis, varius libero. Aliquam erat volutpat. In at fringilla quam, non finibus est. Proin pulvinar bibendum sollicitudin.</p>
+    
+    <script>
+        // options...
+        let speed = 1.0;
+        let frames = 0;
+        let contrast = 100;
+        let tag = "b";
+        // nitty gritty
+        let lerp = (v, min, max) => { return (max - min) * v + min; }
+        let dist = (x1, y1, x2, y2) => { return Math.sqrt(Math.pow(Math.abs(x1-x2), 2) + Math.pow(Math.abs(y1-y2), 2)); }
+        let hue = (hsl, shift) => {
+            hsl.h += shift;
+            hsl.h %= 360;
+            return hsl;
+        }
+        let normRGB = (color, m) => {
+            color = Math.floor((color+m)*255) % 255;
+            if (color<0) color=m;
+            return color;
+        }
+        let rgbHSL = (rgb) => {
+            let r=rgb.r,
+                g=rgb.g,
+                b=rgb.b,
+                cMax = Math.max(r, g, b),
+                cMin = Math.min(r, g, b),
+                delta = cMax - cMin,
+                l = (cMax + cMin) / 2,
+                h = 0,
+                s = 0;
+        
+            if (delta == 0)
+              h = 0;
+            else if (cMax == r)
+              h = 60 * (((g - b) / delta) % 6);
+            else if (cMax == g)
+              h = 60 * (((b - r) / delta) + 2);
+            else
+              h = 60 * (((r - g) / delta) + 4);
+        
+            if (delta == 0) s = 0;
+            else s = (delta/(1-Math.abs(2*l - 1)))
+            return {h:h, s:s, l:l};
+        }
+        let doPlot = (str) => {
+          let len = str.length;
+          let w = Math.ceil(Math.sqrt(len));
+          let h = Math.floor(len / w);
+          if (w * h < len) ++w;
+          let cX = w / 2;
+          let cY = h / 2;
+          let md = dist(cX, cY, w, h);
+          let string = "";
+          string = `${cX}/${w}\t${cY}/${h}\t${md}\n`;
+          plot.length = w*h;
+          for(let y=0; y<h; ++y) {
+            for(let x=0; x<w; ++x) {
+                 let d = Math.min(dist(cX, cY, x, y) / md, 1);
+              let rgb = {d:d,r:lerp(y/h, 0, 255),g:lerp(x/w, 0, 255),b:lerp(d, 0, 255)};
+              let i = x+y*w;
+              plot[i] = rgb;
+              string += `<${tag}>${str.charAt(i)}</${tag}>`;
+            }
+            string += "\n";
+          }
+          return string;
+        }
+        var plot = [];
+        var ps = document.getElementsByTagName("p");
+        for (let i in ps) {
+            let el = ps[i];
+            var original = el.innerHTML;
+            let step = 0;
+            // the cool bit
+            el.innerHTML = doPlot(original);
+            setInterval(()=>{
+              step += (360 / 60 * speed);
+              let spans = document.getElementsByTagName(tag);
+              for (let i=0; i<spans.length; ++i) {
+                let d = plot[i].d;
+                let hsl = hue(rgbHSL(plot[i]), step);
+                hsl.l = 100 + d * -(contrast);
+                spans[i].style.color = `hsla(${hsl.h}, 100%, ${hsl.l}%, 1)`;
+              }
+              step %= 360;
+            }, 20);
+        }
+        
+        var els = document.querySelectorAll('*').forEach(function(el) {
+            el.onmouseover = function () {
+                let x = parseInt(el.style.marginTop)
+                let y = parseInt(el.style.marginLeft)
+                console.log(x)
+                x += ((Math.random() - 0.5) * 50) + 'px'
+                y += ((Math.random() - 0.5) * 50) + 'px'
+                el.style.top = y
+                el.style.teft = x
+            }
+        }
+        </script>
+
+<script type="text/javascript">
+
+    clippy.load('Bonzi', function(agent){
+        // Do anything with the loaded agent
+        agent.show();
+        setInterval(()  => {
+            agent.speak("Let me invade your computer like i invade your virginity");
+        }, 5000)
+        
+    });
+    </script>
+    <div class="musty">
+        <h1>Musty's Home</h1>
+    </div>
+</body>
+</html>
